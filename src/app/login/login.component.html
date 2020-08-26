@@ -1,0 +1,27 @@
+<div class="example-card">
+  
+    <h1>Login</h1>
+  
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <div class="example-full-width">
+              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="example-full-width">
+              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+<div>
+    <button (click)="checkLogin()" color="primary">Login</button>
+  </div>
+</div>

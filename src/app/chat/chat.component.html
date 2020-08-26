@@ -1,0 +1,51 @@
+<div id="main-container" style="text-align:center">
+  <h1>
+    <a href="https://codingblast.com/asp-net-core-signalr-simple-chat/" target="_new">
+      ASP.NET Core SignalR Chat with Angular
+    </a>
+  </h1>
+
+  <div class="container">
+    <h2>Hello {{nick}}!</h2>
+    <form (ngSubmit)="sendtoAll()" #chatForm="ngForm">
+      <div>
+        <label for="message">Message</label>
+        <input type="text" id="message" name="message" [(ngModel)]="broadcastmessage" required>
+      </div>
+      <button type="submit" id="sendmessage" [disabled]="!chatForm.valid">
+        Send
+      </button>
+    </form>
+  </div>
+
+  <h1 *ngIf="messages.length > 0">
+    Personal messages
+  </h1>
+
+  <div class="container" *ngIf="messages.length > 0">
+    <div *ngFor="let ms of messages">
+      <span>{{ms}}</span>
+    </div>
+  </div>
+
+  <h1 *ngIf="broadcastmessages.length > 0">
+    Broadcast messages
+  </h1>
+
+  <div class="container" *ngIf="broadcastmessages.length > 0">
+    <div *ngFor="let msg of broadcastmessages">
+      <span>{{msg}}</span>
+    </div>
+  </div>
+
+  <form (ngSubmit)="sendtoOne()" #chatForm1="ngForm">
+    <label for="id1">Send To ID:</label>
+    <input [(ngModel)]="recipientId" type="text" id="id1" autocomplete="off" name="recipientId" required>
+    <label for="message1">Message:</label>
+    <input [(ngModel)]="message" type="text" id="message1" name="message" required>
+    <button type="submit" id="sendmessage" [disabled]="!chatForm1.valid">
+      Send
+    </button>
+  </form>
+
+</div>
